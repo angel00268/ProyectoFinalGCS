@@ -22,7 +22,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'super_admin@gcs.com',
             'email_verified_at' => now(),
             'password' => Hash::make('Super123'),
+            'is_admin' => true,
             'remember_token' => Str::random(10),
+        ]);
+
+        $this->call([
+            CountrySeeder::class,
         ]);
     }
 }
