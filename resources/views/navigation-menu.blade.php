@@ -16,9 +16,17 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.index')">
-                        Usuarios
-                    </x-jet-nav-link>
+                    @if ( auth()->user()->is_admin ||  auth()->user()->user_detail->role == "Administrador")
+                        <x-jet-nav-link href="{{ route('user.index') }}" :active="str_contains(request()->url(),'usuarios')">
+                            Usuarios
+                        </x-jet-nav-link>
+                    @endif
+
+                    @if (!auth()->user()->is_admin)
+                        <x-jet-nav-link href="{{ route('profile',['user' => auth()->user(),'op' => 2]) }}" :active="str_contains(request()->url(),'perfil')">
+                            Perfil
+                        </x-jet-nav-link>
+                    @endif
                 </div>
             </div>
 

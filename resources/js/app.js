@@ -6,5 +6,8 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-var Turbolinks = require("turbolinks")
-Turbolinks.start()
+import IMask from 'imask';
+window.IMask = IMask;
+
+/*var Turbolinks = require("turbolinks")
+Turbolinks.start()*/

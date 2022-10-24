@@ -34,6 +34,10 @@ class UserDetail extends Model
         return "{$this->first_name} {$this->first_surname}";
     }
 
+    public function completeName() {
+        return "{$this->first_name} {$this->second_name} {$this->first_surname} {$this->second_surname}";
+    }
+
     public function user() {
         return $this->belongsTo(User::class,'user_id');
     }

@@ -11,7 +11,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -61,7 +61,16 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function userDetail() {
+    protected $attributes = [
+        'is_admin' => 0,
+    ];
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+
+    public function user_detail() {
         return $this->hasOne(UserDetail::class,'user_id');
     }
 }
