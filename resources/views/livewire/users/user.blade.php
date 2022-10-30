@@ -80,10 +80,12 @@
                                                     <a href="{{ route('user.update',$user) }}" title="Editar" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                         <i class="fa-solid fa-pen-to-square w-4 h-4"></i>
                                                     </a>
-                                                    <button wire:click='confirm({{$user->id}})' type="button" title="Eliminar" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                                                    <button wire:click='confirm({{$user->id}})' type="button" title="Eliminar" 
+                                                        class="delete-button text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
                                                         wire:loading.disabled
                                                         wire:target='confirm({{$user->id}})'
-                                                        wire:loading.class='cursor-not-allowed'>
+                                                        wire:loading.class='cursor-not-allowed'
+                                                        dusk="delete-{{$user->name}}">
                                                         <i wire:loading.remove wire:target='confirm({{$user->id}})' class="fa-solid fa-trash w-4 h-4"></i>
 
                                                         <div wire:loading wire:target="confirm({{$user->id}})">
@@ -120,7 +122,8 @@
                         <button type="button" wire:click='delete'
                             class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-full text-white bg-blue-500 hover:bg-blue-400 transition ease-in-out duration-150 "
                             wire:loading.disabled wire:target='delete'
-                            wire:loading.class='cursor-not-allowed'>
+                            wire:loading.class='cursor-not-allowed'
+                            dusk="delete-si">
                             Eliminar usuario
                             <div wire:loading wire:target="delete">
                                 <svg class="animate-spin h-5 w-5 text-white"

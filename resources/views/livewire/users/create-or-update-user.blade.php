@@ -14,14 +14,14 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="first_name" value="Primer nombre:*" />
-                            <x-jet-input id="first_name" type="text"
+                            <x-jet-input id="first_name" type="text" name="first_name"
                                 class="{{ $errors->has('state.first_name') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.first_name" />
                             <x-jet-input-error for="state.first_name" />
                         </div>
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="second_name" value="Segundo nombre:" />
-                            <x-jet-input id="second_name" type="text"
+                            <x-jet-input id="second_name" type="text"  name="second_name"
                                 class="{{ $errors->has('state.second_name') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.second_name" />
                             <x-jet-input-error for="state.second_name" />
@@ -30,14 +30,14 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="first_surname" value="Primer apellido:*" />
-                            <x-jet-input id="first_surname" type="text"
+                            <x-jet-input id="first_surname" type="text" name="first_surname"
                                 class="{{ $errors->has('state.first_surname') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.first_surname" />
                             <x-jet-input-error for="state.first_surname" />
                         </div>
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="second_surname" value="Segundo apellido:" />
-                            <x-jet-input id="second_surname" type="text"
+                            <x-jet-input id="second_surname" type="text" name="second_surname"
                                 class="{{ $errors->has('state.second_surname') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.second_surname" />
                             <x-jet-input-error for="state.second_surname" />
@@ -46,14 +46,14 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="email" value="Correo electrónico:*" />
-                            <x-jet-input id="email" type="text"
+                            <x-jet-input id="email" type="text" name="email"
                                 class="{{ $errors->has('user_state.email') ? 'border-red-500' : '' }}"
                                 wire:model.defer="user_state.email" />
                             <x-jet-input-error for="user_state.email" />
                         </div>
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="email_confirm" value="Confirme el correo electrónico:*" />
-                            <x-jet-input id="email_confirm" type="text"
+                            <x-jet-input id="email_confirm" type="text" name="email_confirm"
                                 class="{{ $errors->has('email_confirm') ? 'border-red-500' : '' }}"
                                 wire:model.defer="email_confirm" />
                             <x-jet-input-error for="email_confirm" />
@@ -62,14 +62,14 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="name" value="Nombre de usuario:*" />
-                            <x-jet-input id="name" type="text"
+                            <x-jet-input id="name" type="text" name="username"
                                 class="{{ $errors->has('user_state.name') ? 'border-red-500' : '' }}"
                                 wire:model.defer="user_state.name" />
                             <x-jet-input-error for="user_state.name" />
                         </div>
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="second_email" value="Segundo correo electrónico:" />
-                            <x-jet-input id="second_email" type="text"
+                            <x-jet-input id="second_email" type="text" name="second_email"
                                 class="{{ $errors->has('state.second_email') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.second_email" />
                             <x-jet-input-error for="state.second_email" />
@@ -79,14 +79,14 @@
                         <div class="grid md:grid-cols-2 md:gap-6">
                             <div class="relative z-0 mb-6 w-full group">
                                 <x-jet-label for="password" value="Contraseña:*" />
-                                <x-jet-input id="password" type="password"
+                                <x-jet-input id="password" type="password" name="password"
                                     class="{{ $errors->has('password') ? 'border-red-500' : '' }}"
                                     wire:model.defer="password" />
                                 <x-jet-input-error for="password" />
                             </div>
                             <div class="relative z-0 mb-6 w-full group">
                                 <x-jet-label for="password_confirm" value="Confirme la contraseña:*" />
-                                <x-jet-input id="password_confirm" type="password"
+                                <x-jet-input id="password_confirm" type="password" name="password_confirm"
                                     class="{{ $errors->has('password_confirm') ? 'border-red-500' : '' }}"
                                     wire:model.defer="password_confirm" />
                                 <x-jet-input-error for="password_confirm" />
@@ -96,14 +96,14 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 mb-6 w-full group" x-data="{ mask: '0000-0000' }" x-init="IMask($refs.cell, { mask })">
                             <x-jet-label for="cell_phone" value="Teléfono celular:*" />
-                            <x-jet-input id="cell_phone" type="text"
+                            <x-jet-input id="cell_phone" type="text" name="cell_phone"
                                 class="{{ $errors->has('state.cell_phone') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.cell_phone" x-ref="cell"/>
                             <x-jet-input-error for="state.cell_phone" />
                         </div>
                         <div class="relative z-0 mb-6 w-full group" x-data="{ mask: '0000-0000' }" x-init="IMask($refs.land, { mask })">
                             <x-jet-label for="landline" value="Teléfono fijo:" />
-                            <x-jet-input id="landline" type="text"
+                            <x-jet-input id="landline" type="text"  name="landline" 
                                 class="{{ $errors->has('state.landline') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.landline" x-ref="land"/>
                             <x-jet-input-error for="state.landline" />
@@ -113,7 +113,7 @@
                         <div class="grid md:grid-cols-2 md:gap-6">
                             <div class="relative z-0 mb-6 w-full group">
                                 <x-jet-label for="role" value="Rol:*" />
-                                <select wire:model.defer="state.role"
+                                <select wire:model.defer="state.role" name="role"
                                     class="{{ $errors->has('state.role') ? 'border-red-500' : '' }}
                                     block w-full text-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm ">
                                     <option>-- Seleccione --</option>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="relative z-0 mb-6 w-full group">
                                 <x-jet-label for="country_id" value="País:*" />
-                                <select wire:model.defer="state.country_id"
+                                <select wire:model.defer="state.country_id" name="country"
                                     class="{{ $errors->has('state.country_id') ? 'border-red-500' : '' }}
                                     block w-full text-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm ">
                                     <option>-- Seleccione --</option>
@@ -139,13 +139,13 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="address" value="Dirección:" />
-                            <textarea wire:model.defer="state.address" id="address" cols="2" class="{{ $errors->has('state.address') ? 'border-red-500' : '' }}
+                            <textarea wire:model.defer="state.address" id="address" name="address" cols="2" class="{{ $errors->has('state.address') ? 'border-red-500' : '' }}
                                 block w-full text-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm "></textarea>
                             <x-jet-input-error for="state.address" />
                         </div>
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="description" value="Titular/biografía:" />
-                            <textarea wire:model.defer="state.description" id="description" cols="2" class="{{ $errors->has('state.description') ? 'border-red-500' : '' }}
+                            <textarea wire:model.defer="state.description" id="description" name="description" cols="2" class="{{ $errors->has('state.description') ? 'border-red-500' : '' }}
                                 block w-full text-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm "></textarea>
                             <x-jet-input-error for="state.description" />
                         </div>
@@ -153,14 +153,14 @@
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="workplace" value="Lugar de trabajo:" />
-                            <x-jet-input id="workplace" type="text"
+                            <x-jet-input id="workplace" type="text" name="workplace"
                                 class="{{ $errors->has('state.workplace') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.workplace" />
                             <x-jet-input-error for="state.workplace" />
                         </div>
                         <div class="relative z-0 mb-6 w-full group">
                             <x-jet-label for="position" value="Cargo:" />
-                            <x-jet-input id="position" type="text"
+                            <x-jet-input id="position" type="text"  name="position"
                                 class="{{ $errors->has('state.position') ? 'border-red-500' : '' }}"
                                 wire:model.defer="state.position" />
                             <x-jet-input-error for="state.position" />
