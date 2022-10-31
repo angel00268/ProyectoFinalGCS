@@ -10,7 +10,7 @@ class User extends Component
 {
     public Collection $users;
     public bool $confirm = false;
-    public int $user_id;
+    public int $user_id = 0;
 
     public function confirm($id = null) {
         $this->confirm = $this->confirm ? false : true;
@@ -32,6 +32,7 @@ class User extends Component
     public function render()
     {
         $this->users = auth()->user()->is_admin ? ModelsUser::where('is_admin',0)->get() : ModelsUser::select('users.*')->join('user_details','user_id','users.id')->where('is_admin',0)->where('role','Investigador')->where('country_id',auth()->user()->user_detail->country_id)->get();
+       // dd($this->users);
         return view('livewire.users.user');
     }
 }

@@ -97,21 +97,29 @@ class CreateOrUpdateUser extends Component
         }
     }
 
+    public function create_user($data): User {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($this->password),
+        ]);
+    }
+
+    public function create_user_detail($user, $data): UserDetail {
+        $data['user_id'] = $user->id;
+        if (!auth()->user()->is_admin) {
+            $data['role'] = "Investigador";
+            $data['country_id'] = auth()->user()->user_detail->country_id;
+        }
+        return  UserDetail::create($data);
+    }
+
     public function create()
     {
         try {
             $data = $this->validate();
-            $user = User::create([
-                'name' => $data['user_state']['name'],
-                'email' => $data['user_state']['email'],
-                'password' => Hash::make($this->password),
-            ]);
-            $data['state']['user_id'] = $user->id;
-            if (!auth()->user()->is_admin) {
-                $data['state']['role'] = "Investigador";
-                $data['state']['country_id'] = auth()->user()->user_detail->country_id;
-            }
-            UserDetail::create($data['state']);
+            $user = $this->create_user($data['user_state']);
+            $this->create_user_detail($user,$data['state']);
             $user->sendEmailVerificationNotification();
             $this->resetErrorBag();
             session()->flash('success', 'El usuario ha sido agregado exitosamente.');
@@ -134,7 +142,6 @@ class CreateOrUpdateUser extends Component
                 'name' => $data['user_state']['name'],
                 'email' => $data['user_state']['email'],
             ]);
-            $data['state']['user_id'] = $this->user->id;
             $this->user_detail->update($data['state']);
             $this->resetErrorBag();
             session()->flash('success', 'La información del usuario ha sido actualizada exitosamente.');
